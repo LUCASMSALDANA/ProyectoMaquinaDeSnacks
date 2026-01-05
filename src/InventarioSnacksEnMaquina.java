@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventarioSnacksEnMaquina {
+
     public static final List<Snack> inventarioSnacks = new ArrayList<>();
     //Inicializamos la lista estaticamente
     static{
@@ -30,10 +31,6 @@ public class InventarioSnacksEnMaquina {
         }
         System.out.println("Inventario de Snacks disponibles: ");
         System.out.println(inventarioAmostrar);
-    }
-
-    public static List<Snack> getInventarioSnacks(){
-        return inventarioSnacks;
     }
 
 }

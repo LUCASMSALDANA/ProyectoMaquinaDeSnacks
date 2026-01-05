@@ -5,10 +5,12 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
     public static void main(String[] args) {
         //Inicializamos las variables
         boolean salir = false;
         Scanner scan = new Scanner(System.in);
+
         List<Snack> productosAgregados = new ArrayList<>();
 
         //Mostramos el titulo
@@ -24,7 +26,7 @@ public class Main {
                 //Con la opcion llamo al ejecutador de opciones
                 salir = ejecutarOpcion(opcion, scan, productosAgregados);
             } catch (Exception e) {
-                System.out.println("Ha ocurrido un error!" + e.getMessage());
+                System.out.println("Ha ocurrido un error!: " + e.getMessage());
             }finally {
                 System.out.println();
             }
@@ -54,6 +56,7 @@ public class Main {
         //Pido el Id que desea comprar
         System.out.print("Ingrese el Snack que desea comprar (id): ");
         int idSnackAcomprar = Integer.parseInt(scan.nextLine());
+
         //Verifico que el mismo exista
         boolean idEncontrado = false;
 
