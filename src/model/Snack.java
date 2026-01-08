@@ -1,3 +1,5 @@
+package model;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -7,6 +9,7 @@ public class Snack implements Serializable {
     private final int idSnack;
     private String nombre;
     private double precio;
+    private int stockDisponible = 0;
 
     public Snack (){
         this.idSnack = ++contadorSnacks;
@@ -16,6 +19,13 @@ public class Snack implements Serializable {
         this();
         this.nombre = nombre;
         this.precio = precio;
+    }
+
+    public Snack (String nombre, double precio, int stockDisponible){
+        this();
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stockDisponible = stockDisponible;
     }
 
 
@@ -29,6 +39,14 @@ public class Snack implements Serializable {
 
     public double getPrecio() {
         return precio;
+    }
+
+    public int getStockDisponible() {
+        return stockDisponible;
+    }
+
+    public void setStockDisponible(int stockDisponible) {
+        this.stockDisponible = stockDisponible;
     }
 
     @Override
@@ -45,10 +63,17 @@ public class Snack implements Serializable {
 
     @Override
     public String toString() {
-        return "{" +
+        String snack = "{" +
                 "idSnack=" + idSnack +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
+                ", stock=" + stockDisponible +
                 '}';
+        if (this.stockDisponible==0){ snack+=" *** AGOTADO ***";}
+        return snack;
+    }
+
+    public String formateo() {
+        return idSnack +","+nombre+","+precio+","+stockDisponible;
     }
 }
